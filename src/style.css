@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hamburger-menu {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.hamburger-menu div {
+  width: 2rem;
+  height: 0.1rem;
+  border-radius: 2rem;
+  background-color: hsl(210, 13%, 91%);
+}
+
+.bar {
+  width: 2rem;
+  height: 0.2rem;
+  border-radius: 2rem;
+  background-color: hsl(210, 13%, 91%);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: translateY(0.5rem) rotate(45deg);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: translateY(-0.7rem) rotate(-45deg);
+}
+
+#nav-menu {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+#nav-menu.is-open {
+  /* Move to its final position on-screen */
+  transform: translateY(0);
+  opacity: 1;
+  /* Make it clickable when visible */
+  pointer-events: auto;
+}
+
+.nav-item {
+  opacity: 0;
+  transform: translateY(-20px);
+  /* Define the transition for the staggered fade-in effect */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#nav-menu.is-open .nav-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#nav-menu.is-open .nav-item:nth-child(1) {
+  transition-delay: 0.3s;
+}
+
+#nav-menu.is-open .nav-item:nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+#nav-menu.is-open .nav-item:nth-child(3) {
+  transition-delay: 0.5s;
+}
+
+#nav-menu.is-open .nav-item:nth-child(4) {
+  transition-delay: 0.6s;
+}
+
+#nav-menu.is-open .nav-item:nth-child(5) {
+  transition-delay: 0.7s;
+}
